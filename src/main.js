@@ -17,11 +17,10 @@ import ListType from "./components/ListType.vue"
 
 
 const routes =[
-  {path:'/', component:List},
-  {path:'/detail/:id', component:Detail},
-  {path:'/category/:id/elements', component:ListCategory},
-  {path:'/type/:id/elements', component:ListType}
-
+  {path:'/', component:List, name: 'list'},
+  {path:'/detail/:id', component:Detail, name: 'detail'},
+  {path:'/category/:id/elements', component:ListCategory, name: 'list-category'},
+  {path:'/type/:id/elements', component:ListType, name: 'list-type'},
 
 ]
 

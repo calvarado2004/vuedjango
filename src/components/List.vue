@@ -17,14 +17,14 @@ export default {
 
   data() {
     return {
-      msj: "... :(",
       elements: [],
+      host: process.env.VUE_APP_DJANGO_HOST,
+      port: process.env.VUE_APP_DJANGO_PORT,
     };
   },
   methods: {
     findAll: function () {
-      console.log("Hola Mundo");
-      fetch("http://127.0.0.1:8000/api/element/?format=json")
+      fetch("http://" + this.host + ":" + this.port + "/api/element/?format=json")
         .then((res) => res.json())
         //.then(res => console.log(res))
         .then((res) => (this.elements = res));

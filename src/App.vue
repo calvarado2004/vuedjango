@@ -31,7 +31,13 @@ export default {
     //Detail
     Header,
     Categories,
-    Types
+    Types,
+  },
+  data() {
+    return {
+      host: process.env.VUE_APP_DJANGO_HOST,
+      port: process.env.VUE_APP_DJANGO_PORT,
+    };
   },
 };
 </script>

@@ -47,16 +47,18 @@ export default {
     return {
       categories: [],
       types: [],
+      host: process.env.VUE_APP_DJANGO_HOST,
+      port: process.env.VUE_APP_DJANGO_PORT,
     };
   },
   methods: {
     findAllCategory: function () {
-      fetch("http://127.0.0.1:8000/api/category/?format=json")
+      fetch("http://" + this.host + ":" + this.port + "/api/category/?format=json")
         .then((res) => res.json())
         .then((res) => (this.categories = res));
     },
     findAllTypes: function () {
-      fetch("http://127.0.0.1:8000/api/type/?format=json")
+      fetch("http://" + this.host + ":" + this.port + "/api/type/?format=json")
         .then((res) => res.json())
         .then((res) => (this.types = res));
     },

@@ -19,12 +19,14 @@ export default {
     return {
       msj: "... :(",
       elements: [],
+      host: process.env.VUE_APP_DJANGO_HOST,
+      port: process.env.VUE_APP_DJANGO_PORT,
     };
   },
   methods: {
     findAll: function () {
       fetch(
-        "http://127.0.0.1:8000/api/category/" +
+        "http://" + this.host + ":" + this.port + "/api/category/" +
           this.$route.params.id +
           "/elements/?format=json"
       )
