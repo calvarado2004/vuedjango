@@ -39,7 +39,7 @@ export default {
   methods: {
     find: function () {
       axios.get(
-        "http://" + this.host + ":" + this.port + "/api/element/" +
+        "https://" + this.host + ":" + this.port + "/api/element/" +
           this.$route.params.id +
           "/?format=json")
       
