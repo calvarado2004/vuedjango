@@ -53,12 +53,12 @@ export default {
   },
   methods: {
     findAllCategory: function () {
-      fetch("http://" + this.host + ":" + this.port + "/api/category/?format=json")
+      fetch("https://" + this.host + ":" + this.port + "/api/category/?format=json")
         .then((res) => res.json())
         .then((res) => (this.categories = res));
     },
     findAllTypes: function () {
-      fetch("http://" + this.host + ":" + this.port + "/api/type/?format=json")
+      fetch("https://" + this.host + ":" + this.port + "/api/type/?format=json")
         .then((res) => res.json())
         .then((res) => (this.types = res));
     },

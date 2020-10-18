@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     findAll: function () {
-      fetch("http://" + this.host + ":" + this.port + "/api/type/?format=json")
+      fetch("https://" + this.host + ":" + this.port + "/api/type/?format=json")
         .then((res) => res.json())
         //.then(res => console.log(res))
         .then((res) => (this.types = res));

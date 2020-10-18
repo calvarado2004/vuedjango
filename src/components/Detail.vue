@@ -51,12 +51,12 @@ export default {
         });
     },
     findCategory: function (id) {
-      axios.get("http://" + this.host + ":" + this.port + "/api/category/" + id + "/?format=json")
+      axios.get("https://" + this.host + ":" + this.port + "/api/category/" + id + "/?format=json")
         //.then((res) => res.json())
         .then((res) => (this.category = res.data));
     },
     findType: function (id) {
-      axios.get("http://" + this.host + ":" + this.port + "/api/type/" + id + "/?format=json")
+      axios.get("https://" + this.host + ":" + this.port + "/api/type/" + id + "/?format=json")
         //.then((res) => res.json())
         .then((res) => (this.type = res.data));
     },

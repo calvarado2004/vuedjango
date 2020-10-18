@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     findAll: function () {
-      fetch("http://" + this.host + ":" + this.port + "/api/element/?format=json")
+      fetch("https://" + this.host + ":" + this.port + "/api/element/?format=json")
         .then((res) => res.json())
         //.then(res => console.log(res))
         .then((res) => (this.elements = res));

@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     findAll: function () {
-      fetch("http://" + this.host + ":" + this.port + "/api/category/?format=json")
+      fetch("https://" + this.host + ":" + this.port + "/api/category/?format=json")
         .then((res) => res.json())
         //.then(res => console.log(res))
         .then((res) => (this.categories = res));

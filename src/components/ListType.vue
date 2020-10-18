@@ -25,7 +25,7 @@ export default {
   methods: {
     findAll: function () {
       fetch(
-        "http://" + this.host + ":" + this.port + "/api/type/" +
+        "https://" + this.host + ":" + this.port + "/api/type/" +
           this.$route.params.id +
           "/elements/?format=json"
       )
