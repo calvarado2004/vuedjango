@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vue-api-rest
+  namespace: calvarado2004
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vue-api-rest-container
+  template:
+    metadata:
+      labels:
+        app: vue-api-rest-container
+    spec:
+      containers:
+        - name: vue-api-rest-container
+          image: {{ CONTAINER_IMAGE }}:{{ TAG_USED }}
+          ports:
+            - containerPort: 80
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: vue-api-rest-service
+  namespace: calvarado2004
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  selector:
+    app: vue-api-rest-container
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
