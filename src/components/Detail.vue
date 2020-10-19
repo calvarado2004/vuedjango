@@ -23,6 +23,7 @@
 
 <script>
 const axios = require("axios");
+var instance = axios.create({ baseURL: this.protocol + "://" + this.host + ":" + this.port });
 export default {
   created() {
     this.find();
@@ -34,15 +35,13 @@ export default {
       type: Object,
       host: process.env.VUE_APP_DJANGO_HOST,
       port: process.env.VUE_APP_DJANGO_PORT,
+      protocol: process.env.VUE_APP_DJANGO_PROTOCOL,
     };
   },
   methods: {
+    
     find: function () {
-      axios.get(
-        "https://" + this.host + ":" + this.port + "/api/element/" +
-          this.$route.params.id +
-          "/?format=json")
-      
+      instance.get("/api/element/" + this.$route.params.id + "/?format=json")
         //.then((res) => res.json())
         .then((res) => {
           this.element = res.data;
@@ -51,12 +50,12 @@ export default {
         });
     },
     findCategory: function (id) {
-      axios.get("https://" + this.host + ":" + this.port + "/api/category/" + id + "/?format=json")
+      instance.get("/api/category/" + id + "/?format=json")
         //.then((res) => res.json())
         .then((res) => (this.category = res.data));
     },
     findType: function (id) {
-      axios.get("https://" + this.host + ":" + this.port + "/api/type/" + id + "/?format=json")
+      instance.get("/api/type/" + id + "/?format=json")
         //.then((res) => res.json())
         .then((res) => (this.type = res.data));
     },

@@ -21,12 +21,13 @@ export default {
       elements: [],
       host: process.env.VUE_APP_DJANGO_HOST,
       port: process.env.VUE_APP_DJANGO_PORT,
+      protocol: process.env.VUE_APP_DJANGO_PROTOCOL,
     };
   },
   methods: {
     findAll: function () {
       fetch(
-        "https://" + this.host + ":" + this.port + "/api/category/" +
+        this.protocol + "://" + this.host + ":" + this.port + "/api/category/" +
           this.$route.params.id +
           "/elements/?format=json"
       )

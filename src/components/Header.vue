@@ -49,16 +49,17 @@ export default {
       types: [],
       host: process.env.VUE_APP_DJANGO_HOST,
       port: process.env.VUE_APP_DJANGO_PORT,
+      protocol: process.env.VUE_APP_DJANGO_PROTOCOL,
     };
   },
   methods: {
     findAllCategory: function () {
-      fetch("https://" + this.host + ":" + this.port + "/api/category/?format=json")
+      fetch(this.protocol + "://" + this.host + ":" + this.port + "/api/category/?format=json")
         .then((res) => res.json())
         .then((res) => (this.categories = res));
     },
     findAllTypes: function () {
-      fetch("https://" + this.host + ":" + this.port + "/api/type/?format=json")
+      fetch(this.protocol + "://" + this.host + ":" + this.port + "/api/type/?format=json")
         .then((res) => res.json())
         .then((res) => (this.types = res));
     },

@@ -43,11 +43,12 @@ export default {
       elements: [],
       host: process.env.VUE_APP_DJANGO_HOST,
       port: process.env.VUE_APP_DJANGO_PORT,
+      protocol: process.env.VUE_APP_DJANGO_PROTOCOL,
     };
   },
   methods: {
     findAll: function () {
-      fetch("https://" + this.host + ":" + this.port + "/api/element/?format=json")
+      fetch(this.protocol + "://" + this.host + ":" + this.port + "/api/element/?format=json")
         .then((res) => res.json())
         //.then(res => console.log(res))
         .then((res) => (this.elements = res));
