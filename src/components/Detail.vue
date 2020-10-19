@@ -23,7 +23,6 @@
 
 <script>
 const axios = require("axios");
-var instance = axios.create({ baseURL: this.protocol + "://" + this.host + ":" + this.port });
 export default {
   created() {
     this.find();
@@ -37,8 +36,11 @@ export default {
       port: process.env.VUE_APP_DJANGO_PORT,
       protocol: process.env.VUE_APP_DJANGO_PROTOCOL,
     };
+    var instance = axios.create({ baseURL: this.protocol + "://" + this.host + ":" + this.port });
   },
   methods: {
+
+
     
     find: function () {
       instance.get("/api/element/" + this.$route.params.id + "/?format=json")
