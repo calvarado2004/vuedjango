@@ -22,7 +22,7 @@
 </template>
 
 <script>
-const axios = require("axios");
+var axios = require("axios");
 export default {
   created() {
     this.find();
@@ -36,14 +36,12 @@ export default {
       port: process.env.VUE_APP_DJANGO_PORT,
       protocol: process.env.VUE_APP_DJANGO_PROTOCOL,
     };
-    var instance = axios.create({ baseURL: this.protocol + "://" + this.host + ":" + this.port });
   },
   methods: {
 
-
-    
     find: function () {
-      instance.get("/api/element/" + this.$route.params.id + "/?format=json")
+      axios.defaults.baseURL = this.protocol + "://" + this.host + ":" + this.port
+      axios.get("/api/element/" + this.$route.params.id + "/?format=json")
         //.then((res) => res.json())
         .then((res) => {
           this.element = res.data;
@@ -52,12 +50,12 @@ export default {
         });
     },
     findCategory: function (id) {
-      instance.get("/api/category/" + id + "/?format=json")
+      axios.get("/api/category/" + id + "/?format=json")
         //.then((res) => res.json())
         .then((res) => (this.category = res.data));
     },
     findType: function (id) {
-      instance.get("/api/type/" + id + "/?format=json")
+      axios.get("/api/type/" + id + "/?format=json")
         //.then((res) => res.json())
         .then((res) => (this.type = res.data));
     },
