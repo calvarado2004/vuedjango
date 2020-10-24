@@ -30,7 +30,9 @@ metadata:
 spec:
   selector:
     app: vue-api-rest-container
+  type: ClusterIP
   ports:
-    - protocol: TCP
+    - name: "vue-api-rest"
+      protocol: TCP
       port: 80
       targetPort: 80
