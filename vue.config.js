@@ -5,9 +5,6 @@ module.exports = {
     plugins: [
       new Dotenv()
     ],
-    prodServer: {
-      headers: { "Access-Control-Allow-Origin": "*" }
-    },
     devServer: {
       headers: { "Access-Control-Allow-Origin": "*" }
     }
